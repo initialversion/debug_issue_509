@@ -21,7 +21,7 @@
       <% @q_lineups.each do |q_lineup| %>
       <tr>
         <td><%= q_lineup.suggestion_or_inspiration %></td>
-        <td><%= q_lineup.inspiration_id %></td>
+        <td><%= q_lineup.inspiration.seed_track_id %></td>
         <td><%= q_lineup.suggestion_id %></td>
         <td><%= q_lineup.active %></td>
         <td><%= q_lineup.lineup_order %></td>
