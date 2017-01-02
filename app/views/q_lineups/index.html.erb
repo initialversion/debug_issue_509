@@ -25,7 +25,7 @@
         <td><%= q_lineup.suggestion_id %></td>
         <td><%= q_lineup.active %></td>
         <td><%= q_lineup.lineup_order %></td>
-        <td><%= q_lineup.q_id %></td>
+        <td><%= q_lineup.q.created_at %></td>
         <td>
           <a href="/q_lineups/<%= q_lineup.id %>" class="btn btn-primary">Show</a>
           <a href="/q_lineups/<%= q_lineup.id %>/edit" class="btn btn-warning">Edit</a>
