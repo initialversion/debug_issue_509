@@ -50,7 +50,7 @@
           Queue
         </label>
 
-        <input type="text" id="queue_id" name="queue_id" placeholder="Queue" class="form-control" value="<%= @q_participant.queue_id %>">
+        <%= select_tag(:queue_id, options_from_collection_for_select(Queue.all, :id, :created_at, @q_participant.queue_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-warning">
