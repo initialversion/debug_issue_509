@@ -1,0 +1,40 @@
+<div class="page-header">
+  <h3>Inspiration #<%= @inspiration.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Seed track</dt>
+      <dd><%= @inspiration.seed_track_id %></dd>
+
+      <dt>Inspiration song</dt>
+      <dd><%= @inspiration.inspiration_song_id %></dd>
+
+      <dt>Up vote count</dt>
+      <dd><%= @inspiration.up_vote_count %></dd>
+
+      <dt>Down vote count</dt>
+      <dd><%= @inspiration.down_vote_count %></dd>
+
+      <dt>Qlineup</dt>
+      <dd><%= @inspiration.qlineup_id %></dd>
+
+      <dt>Status</dt>
+      <dd><%= @inspiration.status %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/inspirations" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/inspirations/<%= @inspiration.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_inspiration/<%= @inspiration.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

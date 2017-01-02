@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Inspiration resource:
+  # CREATE
+  get "/inspirations/new", :controller => "inspirations", :action => "new"
+  post "/create_inspiration", :controller => "inspirations", :action => "create"
+
+  # READ
+  get "/inspirations", :controller => "inspirations", :action => "index"
+  get "/inspirations/:id", :controller => "inspirations", :action => "show"
+
+  # UPDATE
+  get "/inspirations/:id/edit", :controller => "inspirations", :action => "edit"
+  post "/update_inspiration/:id", :controller => "inspirations", :action => "update"
+
+  # DELETE
+  get "/delete_inspiration/:id", :controller => "inspirations", :action => "destroy"
+  #------------------------------
+
   # Routes for the App_invite resource:
   # CREATE
   get "/app_invites/new", :controller => "app_invites", :action => "new"
