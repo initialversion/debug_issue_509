@@ -1,6 +1,10 @@
 class QLineup < ApplicationRecord
   # Direct associations
 
+  has_many   :suggestions,
+             :foreign_key => "qlineup_id",
+             :dependent => :destroy
+
   has_many   :inspirations,
              :foreign_key => "qlineup_id",
              :dependent => :destroy
