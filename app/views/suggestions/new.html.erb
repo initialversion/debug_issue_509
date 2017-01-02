@@ -1,0 +1,82 @@
+<!-- Validation failure messages -->
+<% if @suggestion.errors.any? %>
+  <% @suggestion.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Suggestion</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_suggestion" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @suggestion.user_id %>">
+      </div>
+
+      <!-- Label and input for song_id -->
+      <div class="form-group">
+        <label for="song_id" class="control-label">
+          Song
+        </label>
+
+        <input type="text" id="song_id" name="song_id" placeholder="Song" class="form-control" value="<%= @suggestion.song_id %>">
+      </div>
+
+      <!-- Label and input for up_vote_count -->
+      <div class="form-group">
+        <label for="up_vote_count" class="control-label">
+          Up vote count
+        </label>
+
+        <input type="text" id="up_vote_count" name="up_vote_count" placeholder="Up vote count" class="form-control" value="<%= @suggestion.up_vote_count %>">
+      </div>
+
+      <!-- Label and input for down_vote_count -->
+      <div class="form-group">
+        <label for="down_vote_count" class="control-label">
+          Down vote count
+        </label>
+
+        <input type="text" id="down_vote_count" name="down_vote_count" placeholder="Down vote count" class="form-control" value="<%= @suggestion.down_vote_count %>">
+      </div>
+
+      <!-- Label and input for status -->
+      <div class="form-group">
+        <label for="status" class="control-label">
+          Status
+        </label>
+
+        <input type="text" id="status" name="status" placeholder="Status" class="form-control" value="<%= @suggestion.status %>">
+      </div>
+
+      <!-- Label and input for qlineup_id -->
+      <div class="form-group">
+        <label for="qlineup_id" class="control-label">
+          Qlineup
+        </label>
+
+        <input type="text" id="qlineup_id" name="qlineup_id" placeholder="Qlineup" class="form-control" value="<%= @suggestion.qlineup_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Suggestion
+      </button>
+      or
+      <a href="/suggestions">Cancel</a>
+    </form>
+  </div>
+</div>

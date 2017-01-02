@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Suggestion resource:
+  # CREATE
+  get "/suggestions/new", :controller => "suggestions", :action => "new"
+  post "/create_suggestion", :controller => "suggestions", :action => "create"
+
+  # READ
+  get "/suggestions", :controller => "suggestions", :action => "index"
+  get "/suggestions/:id", :controller => "suggestions", :action => "show"
+
+  # UPDATE
+  get "/suggestions/:id/edit", :controller => "suggestions", :action => "edit"
+  post "/update_suggestion/:id", :controller => "suggestions", :action => "update"
+
+  # DELETE
+  get "/delete_suggestion/:id", :controller => "suggestions", :action => "destroy"
+  #------------------------------
+
   # Routes for the Q_participant resource:
   # CREATE
   get "/q_participants/new", :controller => "q_participants", :action => "new"
