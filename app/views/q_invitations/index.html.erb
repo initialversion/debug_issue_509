@@ -19,7 +19,7 @@
       <% @q_invitations.each do |q_invitation| %>
       <tr>
         <td><%= q_invitation.sender.user_id %></td>
-        <td><%= q_invitation.recipient_id %></td>
+        <td><%= q_invitation.recipient.email %></td>
         <td><%= q_invitation.status %></td>
         <td><%= q_invitation.queue_id %></td>
         <td>
