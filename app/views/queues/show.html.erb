@@ -1,0 +1,46 @@
+<div class="page-header">
+  <h3>Queue #<%= @queue.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Genres</dt>
+      <dd><%= @queue.genres %></dd>
+
+      <dt>Event type</dt>
+      <dd><%= @queue.event_type %></dd>
+
+      <dt>Status</dt>
+      <dd><%= @queue.status %></dd>
+
+      <dt>Activity type</dt>
+      <dd><%= @queue.activity_type %></dd>
+
+      <dt>Name</dt>
+      <dd><%= @queue.name %></dd>
+
+      <dt>Public queue</dt>
+      <dd><%= @queue.public_queue %></dd>
+
+      <dt>Allow participants to invite</dt>
+      <dd><%= @queue.allow_participants_to_invite %></dd>
+
+      <dt>Group or event</dt>
+      <dd><%= @queue.group_or_event %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/queues" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/queues/<%= @queue.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_queue/<%= @queue.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

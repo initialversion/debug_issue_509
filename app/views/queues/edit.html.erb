@@ -1,0 +1,98 @@
+<!-- Validation failure messages -->
+<% if @queue.errors.any? %>
+  <% @queue.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Queue #<%= @queue.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_queue/<%= @queue.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for genres -->
+      <div class="form-group">
+        <label for="genres" class="control-label">
+          Genres
+        </label>
+
+        <input type="text" id="genres" name="genres" placeholder="Genres" class="form-control" value="<%= @queue.genres %>">
+      </div>
+
+      <!-- Label and input for event_type -->
+      <div class="form-group">
+        <label for="event_type" class="control-label">
+          Event type
+        </label>
+
+        <input type="text" id="event_type" name="event_type" placeholder="Event type" class="form-control" value="<%= @queue.event_type %>">
+      </div>
+
+      <!-- Label and input for status -->
+      <div class="form-group">
+        <label for="status" class="control-label">
+          Status
+        </label>
+
+        <input type="text" id="status" name="status" placeholder="Status" class="form-control" value="<%= @queue.status %>">
+      </div>
+
+      <!-- Label and input for activity_type -->
+      <div class="form-group">
+        <label for="activity_type" class="control-label">
+          Activity type
+        </label>
+
+        <input type="text" id="activity_type" name="activity_type" placeholder="Activity type" class="form-control" value="<%= @queue.activity_type %>">
+      </div>
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @queue.name %>">
+      </div>
+
+      <!-- Label and input for public_queue -->
+      <div class="checkbox">
+        <label for="public_queue">
+          <input type="checkbox" id="public_queue" name="public_queue" value="1" <%= "checked" if @queue.public_queue %>>
+          Public queue
+        </label>
+      </div>
+
+      <!-- Label and input for allow_participants_to_invite -->
+      <div class="checkbox">
+        <label for="allow_participants_to_invite">
+          <input type="checkbox" id="allow_participants_to_invite" name="allow_participants_to_invite" value="1" <%= "checked" if @queue.allow_participants_to_invite %>>
+          Allow participants to invite
+        </label>
+      </div>
+
+      <!-- Label and input for group_or_event -->
+      <div class="form-group">
+        <label for="group_or_event" class="control-label">
+          Group or event
+        </label>
+
+        <input type="text" id="group_or_event" name="group_or_event" placeholder="Group or event" class="form-control" value="<%= @queue.group_or_event %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Queue
+      </button>
+      or
+      <a href="/queues/<%= @queue.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
