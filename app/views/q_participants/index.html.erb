@@ -18,10 +18,22 @@
 
       <% @q_participants.each do |q_participant| %>
       <tr>
-        <td><%= q_participant.user.email %></td>
+        <td>
+          <% if q_participant.user.present? %>
+            <a href="/users/<%= q_participant.user.id %>">
+              <%= q_participant.user.email %>
+            </a>
+          <% end %>
+        </td>
         <td><%= q_participant.status %></td>
         <td><%= q_participant.host_status %></td>
-        <td><%= q_participant.q.created_at %></td>
+        <td>
+          <% if q_participant.q.present? %>
+            <a href="/queues/<%= q_participant.q.id %>">
+              <%= q_participant.q.created_at %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/q_participants/<%= q_participant.id %>" class="btn btn-primary">Show</a>
           <a href="/q_participants/<%= q_participant.id %>/edit" class="btn btn-warning">Edit</a>

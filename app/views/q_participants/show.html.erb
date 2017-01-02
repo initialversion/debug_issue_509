@@ -6,7 +6,13 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>User</dt>
-      <dd><%= @q_participant.user_id %></dd>
+      <dd>
+        <% if @q_participant.user.present? %>
+          <a href="/users/<%= @q_participant.user_id %>">
+            <%= @q_participant.user.email %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Status</dt>
       <dd><%= @q_participant.status %></dd>
@@ -15,7 +21,13 @@
       <dd><%= @q_participant.host_status %></dd>
 
       <dt>Queue</dt>
-      <dd><%= @q_participant.queue_id %></dd>
+      <dd>
+        <% if @q_participant.q.present? %>
+          <a href="/queues/<%= @q_participant.queue_id %>">
+            <%= @q_participant.q.created_at %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

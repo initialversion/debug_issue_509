@@ -17,7 +17,13 @@
 
       <% @app_invites.each do |app_invite| %>
       <tr>
-        <td><%= app_invite.sender.email %></td>
+        <td>
+          <% if app_invite.sender.present? %>
+            <a href="/users/<%= app_invite.sender.id %>">
+              <%= app_invite.sender.email %>
+            </a>
+          <% end %>
+        </td>
         <td><%= app_invite.recipient_id %></td>
         <td><%= app_invite.status %></td>
         <td>

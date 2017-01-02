@@ -6,7 +6,13 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Sender</dt>
-      <dd><%= @app_invite.sender_id %></dd>
+      <dd>
+        <% if @app_invite.sender.present? %>
+          <a href="/users/<%= @app_invite.sender_id %>">
+            <%= @app_invite.sender.email %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Recipient</dt>
       <dd><%= @app_invite.recipient_id %></dd>

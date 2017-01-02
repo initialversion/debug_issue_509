@@ -20,12 +20,24 @@
 
       <% @suggestions.each do |suggestion| %>
       <tr>
-        <td><%= suggestion.user.email %></td>
+        <td>
+          <% if suggestion.user.present? %>
+            <a href="/users/<%= suggestion.user.id %>">
+              <%= suggestion.user.email %>
+            </a>
+          <% end %>
+        </td>
         <td><%= suggestion.song_id %></td>
         <td><%= suggestion.up_vote_count %></td>
         <td><%= suggestion.down_vote_count %></td>
         <td><%= suggestion.status %></td>
-        <td><%= suggestion.qlineup.suggestion_or_inspiration %></td>
+        <td>
+          <% if suggestion.qlineup.present? %>
+            <a href="/q_lineups/<%= suggestion.qlineup.id %>">
+              <%= suggestion.qlineup.suggestion_or_inspiration %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/suggestions/<%= suggestion.id %>" class="btn btn-primary">Show</a>
           <a href="/suggestions/<%= suggestion.id %>/edit" class="btn btn-warning">Edit</a>

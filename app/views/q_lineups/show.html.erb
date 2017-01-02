@@ -9,7 +9,13 @@
       <dd><%= @q_lineup.suggestion_or_inspiration %></dd>
 
       <dt>Inspiration</dt>
-      <dd><%= @q_lineup.inspiration_id %></dd>
+      <dd>
+        <% if @q_lineup.inspiration.present? %>
+          <a href="/inspirations/<%= @q_lineup.inspiration_id %>">
+            <%= @q_lineup.inspiration.seed_track_id %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Suggestion</dt>
       <dd><%= @q_lineup.suggestion_id %></dd>
@@ -21,7 +27,13 @@
       <dd><%= @q_lineup.lineup_order %></dd>
 
       <dt>Q</dt>
-      <dd><%= @q_lineup.q_id %></dd>
+      <dd>
+        <% if @q_lineup.q.present? %>
+          <a href="/queues/<%= @q_lineup.q_id %>">
+            <%= @q_lineup.q.created_at %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

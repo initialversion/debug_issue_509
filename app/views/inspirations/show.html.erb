@@ -18,7 +18,13 @@
       <dd><%= @inspiration.down_vote_count %></dd>
 
       <dt>Qlineup</dt>
-      <dd><%= @inspiration.qlineup_id %></dd>
+      <dd>
+        <% if @inspiration.q_lineup.present? %>
+          <a href="/q_lineups/<%= @inspiration.qlineup_id %>">
+            <%= @inspiration.q_lineup.suggestion_or_inspiration %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Status</dt>
       <dd><%= @inspiration.status %></dd>

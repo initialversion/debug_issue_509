@@ -18,10 +18,28 @@
 
       <% @q_invitations.each do |q_invitation| %>
       <tr>
-        <td><%= q_invitation.sender.user_id %></td>
-        <td><%= q_invitation.recipient.email %></td>
+        <td>
+          <% if q_invitation.sender.present? %>
+            <a href="/q_participants/<%= q_invitation.sender.id %>">
+              <%= q_invitation.sender.user_id %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if q_invitation.recipient.present? %>
+            <a href="/users/<%= q_invitation.recipient.id %>">
+              <%= q_invitation.recipient.email %>
+            </a>
+          <% end %>
+        </td>
         <td><%= q_invitation.status %></td>
-        <td><%= q_invitation.queue.created_at %></td>
+        <td>
+          <% if q_invitation.queue.present? %>
+            <a href="/queues/<%= q_invitation.queue.id %>">
+              <%= q_invitation.queue.created_at %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/q_invitations/<%= q_invitation.id %>" class="btn btn-primary">Show</a>
           <a href="/q_invitations/<%= q_invitation.id %>/edit" class="btn btn-warning">Edit</a>

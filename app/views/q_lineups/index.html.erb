@@ -21,11 +21,23 @@
       <% @q_lineups.each do |q_lineup| %>
       <tr>
         <td><%= q_lineup.suggestion_or_inspiration %></td>
-        <td><%= q_lineup.inspiration.seed_track_id %></td>
+        <td>
+          <% if q_lineup.inspiration.present? %>
+            <a href="/inspirations/<%= q_lineup.inspiration.id %>">
+              <%= q_lineup.inspiration.seed_track_id %>
+            </a>
+          <% end %>
+        </td>
         <td><%= q_lineup.suggestion_id %></td>
         <td><%= q_lineup.active %></td>
         <td><%= q_lineup.lineup_order %></td>
-        <td><%= q_lineup.q.created_at %></td>
+        <td>
+          <% if q_lineup.q.present? %>
+            <a href="/queues/<%= q_lineup.q.id %>">
+              <%= q_lineup.q.created_at %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/q_lineups/<%= q_lineup.id %>" class="btn btn-primary">Show</a>
           <a href="/q_lineups/<%= q_lineup.id %>/edit" class="btn btn-warning">Edit</a>

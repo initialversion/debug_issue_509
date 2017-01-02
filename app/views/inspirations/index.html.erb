@@ -24,7 +24,13 @@
         <td><%= inspiration.inspiration_song_id %></td>
         <td><%= inspiration.up_vote_count %></td>
         <td><%= inspiration.down_vote_count %></td>
-        <td><%= inspiration.q_lineup.suggestion_or_inspiration %></td>
+        <td>
+          <% if inspiration.q_lineup.present? %>
+            <a href="/q_lineups/<%= inspiration.q_lineup.id %>">
+              <%= inspiration.q_lineup.suggestion_or_inspiration %>
+            </a>
+          <% end %>
+        </td>
         <td><%= inspiration.status %></td>
         <td>
           <a href="/inspirations/<%= inspiration.id %>" class="btn btn-primary">Show</a>

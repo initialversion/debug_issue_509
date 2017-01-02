@@ -6,16 +6,34 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Sender</dt>
-      <dd><%= @q_invitation.sender_id %></dd>
+      <dd>
+        <% if @q_invitation.sender.present? %>
+          <a href="/q_participants/<%= @q_invitation.sender_id %>">
+            <%= @q_invitation.sender.user_id %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Recipient</dt>
-      <dd><%= @q_invitation.recipient_id %></dd>
+      <dd>
+        <% if @q_invitation.recipient.present? %>
+          <a href="/users/<%= @q_invitation.recipient_id %>">
+            <%= @q_invitation.recipient.email %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Status</dt>
       <dd><%= @q_invitation.status %></dd>
 
       <dt>Queue</dt>
-      <dd><%= @q_invitation.queue_id %></dd>
+      <dd>
+        <% if @q_invitation.queue.present? %>
+          <a href="/queues/<%= @q_invitation.queue_id %>">
+            <%= @q_invitation.queue.created_at %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 
