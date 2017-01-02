@@ -17,7 +17,7 @@
 
       <% @app_invites.each do |app_invite| %>
       <tr>
-        <td><%= app_invite.sender_id %></td>
+        <td><%= app_invite.sender.email %></td>
         <td><%= app_invite.recipient_id %></td>
         <td><%= app_invite.status %></td>
         <td>
