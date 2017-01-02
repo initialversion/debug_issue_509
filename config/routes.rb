@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the App_invite resource:
+  # CREATE
+  get "/app_invites/new", :controller => "app_invites", :action => "new"
+  post "/create_app_invite", :controller => "app_invites", :action => "create"
+
+  # READ
+  get "/app_invites", :controller => "app_invites", :action => "index"
+  get "/app_invites/:id", :controller => "app_invites", :action => "show"
+
+  # UPDATE
+  get "/app_invites/:id/edit", :controller => "app_invites", :action => "edit"
+  post "/update_app_invite/:id", :controller => "app_invites", :action => "update"
+
+  # DELETE
+  get "/delete_app_invite/:id", :controller => "app_invites", :action => "destroy"
+  #------------------------------
+
   # Routes for the Q_invitation resource:
   # CREATE
   get "/q_invitations/new", :controller => "q_invitations", :action => "new"
