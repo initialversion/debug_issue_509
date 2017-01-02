@@ -49,7 +49,7 @@
           Suggestion
         </label>
 
-        <input type="text" id="suggestion_id" name="suggestion_id" placeholder="Suggestion" class="form-control" value="<%= @vote.suggestion_id %>">
+        <%= select_tag(:suggestion_id, options_from_collection_for_select(Suggestion.all, :id, :user_id, @vote.suggestion_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-warning">
