@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "queues#index"
   # Routes for the User_library_track resource:
   # CREATE
   get "/user_library_tracks/new", :controller => "user_library_tracks", :action => "new"
