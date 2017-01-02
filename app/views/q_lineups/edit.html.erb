@@ -33,7 +33,7 @@
           Inspiration
         </label>
 
-        <input type="text" id="inspiration_id" name="inspiration_id" placeholder="Inspiration" class="form-control" value="<%= @q_lineup.inspiration_id %>">
+        <%= select_tag(:inspiration_id, options_from_collection_for_select(Inspiration.all, :id, :seed_track_id, @q_lineup.inspiration_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for suggestion_id -->
