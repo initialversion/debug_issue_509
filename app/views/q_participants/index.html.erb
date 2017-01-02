@@ -21,7 +21,7 @@
         <td><%= q_participant.user.email %></td>
         <td><%= q_participant.status %></td>
         <td><%= q_participant.host_status %></td>
-        <td><%= q_participant.queue_id %></td>
+        <td><%= q_participant.q.created_at %></td>
         <td>
           <a href="/q_participants/<%= q_participant.id %>" class="btn btn-primary">Show</a>
           <a href="/q_participants/<%= q_participant.id %>/edit" class="btn btn-warning">Edit</a>
