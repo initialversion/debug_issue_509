@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :suggestions,
+             :dependent => :destroy
+
   has_many   :q_participants,
              :dependent => :destroy
 
