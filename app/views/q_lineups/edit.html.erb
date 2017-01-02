@@ -1,0 +1,81 @@
+<!-- Validation failure messages -->
+<% if @q_lineup.errors.any? %>
+  <% @q_lineup.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Q Lineup #<%= @q_lineup.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_q_lineup/<%= @q_lineup.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for suggestion_or_inspiration -->
+      <div class="form-group">
+        <label for="suggestion_or_inspiration" class="control-label">
+          Suggestion or inspiration
+        </label>
+
+        <input type="text" id="suggestion_or_inspiration" name="suggestion_or_inspiration" placeholder="Suggestion or inspiration" class="form-control" value="<%= @q_lineup.suggestion_or_inspiration %>">
+      </div>
+
+      <!-- Label and input for inspiration_id -->
+      <div class="form-group">
+        <label for="inspiration_id" class="control-label">
+          Inspiration
+        </label>
+
+        <input type="text" id="inspiration_id" name="inspiration_id" placeholder="Inspiration" class="form-control" value="<%= @q_lineup.inspiration_id %>">
+      </div>
+
+      <!-- Label and input for suggestion_id -->
+      <div class="form-group">
+        <label for="suggestion_id" class="control-label">
+          Suggestion
+        </label>
+
+        <input type="text" id="suggestion_id" name="suggestion_id" placeholder="Suggestion" class="form-control" value="<%= @q_lineup.suggestion_id %>">
+      </div>
+
+      <!-- Label and input for active -->
+      <div class="checkbox">
+        <label for="active">
+          <input type="checkbox" id="active" name="active" value="1" <%= "checked" if @q_lineup.active %>>
+          Active
+        </label>
+      </div>
+
+      <!-- Label and input for lineup_order -->
+      <div class="form-group">
+        <label for="lineup_order" class="control-label">
+          Lineup order
+        </label>
+
+        <input type="text" id="lineup_order" name="lineup_order" placeholder="Lineup order" class="form-control" value="<%= @q_lineup.lineup_order %>">
+      </div>
+
+      <!-- Label and input for q_id -->
+      <div class="form-group">
+        <label for="q_id" class="control-label">
+          Q
+        </label>
+
+        <input type="text" id="q_id" name="q_id" placeholder="Q" class="form-control" value="<%= @q_lineup.q_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Q Lineup
+      </button>
+      or
+      <a href="/q_lineups/<%= @q_lineup.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Q_lineup resource:
+  # CREATE
+  get "/q_lineups/new", :controller => "q_lineups", :action => "new"
+  post "/create_q_lineup", :controller => "q_lineups", :action => "create"
+
+  # READ
+  get "/q_lineups", :controller => "q_lineups", :action => "index"
+  get "/q_lineups/:id", :controller => "q_lineups", :action => "show"
+
+  # UPDATE
+  get "/q_lineups/:id/edit", :controller => "q_lineups", :action => "edit"
+  post "/update_q_lineup/:id", :controller => "q_lineups", :action => "update"
+
+  # DELETE
+  get "/delete_q_lineup/:id", :controller => "q_lineups", :action => "destroy"
+  #------------------------------
+
   # Routes for the Inspiration resource:
   # CREATE
   get "/inspirations/new", :controller => "inspirations", :action => "new"
