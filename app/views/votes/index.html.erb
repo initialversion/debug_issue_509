@@ -21,7 +21,7 @@
         <td><%= vote.user.email %></td>
         <td><%= vote.up_vote %></td>
         <td><%= vote.down_vote %></td>
-        <td><%= vote.suggestion_id %></td>
+        <td><%= vote.suggestion.user_id %></td>
         <td>
           <a href="/votes/<%= vote.id %>" class="btn btn-primary">Show</a>
           <a href="/votes/<%= vote.id %>/edit" class="btn btn-warning">Edit</a>
