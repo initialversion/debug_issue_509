@@ -25,7 +25,7 @@
         <td><%= suggestion.up_vote_count %></td>
         <td><%= suggestion.down_vote_count %></td>
         <td><%= suggestion.status %></td>
-        <td><%= suggestion.qlineup_id %></td>
+        <td><%= suggestion.qlineup.suggestion_or_inspiration %></td>
         <td>
           <a href="/suggestions/<%= suggestion.id %>" class="btn btn-primary">Show</a>
           <a href="/suggestions/<%= suggestion.id %>/edit" class="btn btn-warning">Edit</a>
