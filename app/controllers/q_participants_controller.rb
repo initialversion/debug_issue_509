@@ -1,6 +1,6 @@
 class QParticipantsController < ApplicationController
   def index
-    @q_participants = QParticipant.all
+    @q_participants = QParticipant.page(params[:page]).per(10)
 
     render("q_participants/index.html.erb")
   end

@@ -1,6 +1,6 @@
 class AppInvitesController < ApplicationController
   def index
-    @app_invites = AppInvite.all
+    @app_invites = AppInvite.page(params[:page]).per(10)
 
     render("app_invites/index.html.erb")
   end

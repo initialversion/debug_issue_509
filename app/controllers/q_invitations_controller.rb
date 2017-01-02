@@ -1,6 +1,6 @@
 class QInvitationsController < ApplicationController
   def index
-    @q_invitations = QInvitation.all
+    @q_invitations = QInvitation.page(params[:page]).per(10)
 
     render("q_invitations/index.html.erb")
   end

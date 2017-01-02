@@ -1,6 +1,6 @@
 class SuggestionsController < ApplicationController
   def index
-    @suggestions = Suggestion.all
+    @suggestions = Suggestion.page(params[:page]).per(10)
 
     render("suggestions/index.html.erb")
   end

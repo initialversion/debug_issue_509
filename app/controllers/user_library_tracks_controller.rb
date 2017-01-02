@@ -1,6 +1,6 @@
 class UserLibraryTracksController < ApplicationController
   def index
-    @user_library_tracks = UserLibraryTrack.all
+    @user_library_tracks = UserLibraryTrack.page(params[:page]).per(10)
 
     render("user_library_tracks/index.html.erb")
   end

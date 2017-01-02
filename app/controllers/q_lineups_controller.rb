@@ -1,6 +1,6 @@
 class QLineupsController < ApplicationController
   def index
-    @q_lineups = QLineup.all
+    @q_lineups = QLineup.page(params[:page]).per(10)
 
     render("q_lineups/index.html.erb")
   end

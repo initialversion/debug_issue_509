@@ -1,6 +1,6 @@
 class InspirationsController < ApplicationController
   def index
-    @inspirations = Inspiration.all
+    @inspirations = Inspiration.page(params[:page]).per(10)
 
     render("inspirations/index.html.erb")
   end

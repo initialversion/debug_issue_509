@@ -1,6 +1,6 @@
 class QueuesController < ApplicationController
   def index
-    @queues = Queue.all
+    @queues = Queue.page(params[:page]).per(10)
 
     render("queues/index.html.erb")
   end
