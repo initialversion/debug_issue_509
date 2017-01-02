@@ -1,6 +1,9 @@
 class QLineup < ApplicationRecord
   # Direct associations
 
+  belongs_to :q,
+             :class_name => "Queue"
+
   # Indirect associations
 
   # Validations
