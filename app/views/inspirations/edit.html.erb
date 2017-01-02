@@ -60,7 +60,7 @@
           Qlineup
         </label>
 
-        <input type="text" id="qlineup_id" name="qlineup_id" placeholder="Qlineup" class="form-control" value="<%= @inspiration.qlineup_id %>">
+        <%= select_tag(:qlineup_id, options_from_collection_for_select(QLineup.all, :id, :suggestion_or_inspiration, @inspiration.qlineup_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for status -->
