@@ -1,5 +1,7 @@
 ActiveAdmin.register Queue do
 
+ permit_params :genres, :event_type, :status, :activity_type, :name, :public_queue, :allow_participants_to_invite, :group_or_event
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
