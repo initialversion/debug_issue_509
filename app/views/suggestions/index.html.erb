@@ -20,7 +20,7 @@
 
       <% @suggestions.each do |suggestion| %>
       <tr>
-        <td><%= suggestion.user_id %></td>
+        <td><%= suggestion.user.email %></td>
         <td><%= suggestion.song_id %></td>
         <td><%= suggestion.up_vote_count %></td>
         <td><%= suggestion.down_vote_count %></td>
