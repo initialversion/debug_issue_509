@@ -38,3 +38,158 @@
     </div>
   </div>
 </div>
+
+<!-- A User has many q_participants -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Q_participants
+      </li>
+
+      <% @user.q_participants.each do |q_participant| %>
+        <li class="list-group-item">
+          <a href="/q_participants/<%= q_participant.id %>">
+            <%= q_participant.user_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/q_participants/<%= q_participant.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/q_participants/<%= q_participant.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_q_participant/<%= q_participant.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A User has many suggestions -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Suggestions
+      </li>
+
+      <% @user.suggestions.each do |suggestion| %>
+        <li class="list-group-item">
+          <a href="/suggestions/<%= suggestion.id %>">
+            <%= suggestion.user_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/suggestions/<%= suggestion.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/suggestions/<%= suggestion.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_suggestion/<%= suggestion.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A User has many votes -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Votes
+      </li>
+
+      <% @user.votes.each do |vote| %>
+        <li class="list-group-item">
+          <a href="/votes/<%= vote.id %>">
+            <%= vote.user_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/votes/<%= vote.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/votes/<%= vote.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_vote/<%= vote.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A User has many q_invitations -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Q_invitations
+      </li>
+
+      <% @user.q_invitations.each do |q_invitation| %>
+        <li class="list-group-item">
+          <a href="/q_invitations/<%= q_invitation.id %>">
+            <%= q_invitation.sender_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/q_invitations/<%= q_invitation.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/q_invitations/<%= q_invitation.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_q_invitation/<%= q_invitation.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A User has many app_invites -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        App_invites
+      </li>
+
+      <% @user.app_invites.each do |app_invite| %>
+        <li class="list-group-item">
+          <a href="/app_invites/<%= app_invite.id %>">
+            <%= app_invite.sender_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/app_invites/<%= app_invite.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/app_invites/<%= app_invite.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_app_invite/<%= app_invite.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

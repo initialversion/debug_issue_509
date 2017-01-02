@@ -38,3 +38,34 @@
     </div>
   </div>
 </div>
+
+<!-- A Inspiration has many q_lineups -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Q_lineups
+      </li>
+
+      <% @inspiration.q_lineups.each do |q_lineup| %>
+        <li class="list-group-item">
+          <a href="/q_lineups/<%= q_lineup.id %>">
+            <%= q_lineup.suggestion_or_inspiration %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/q_lineups/<%= q_lineup.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/q_lineups/<%= q_lineup.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_q_lineup/<%= q_lineup.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

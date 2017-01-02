@@ -44,3 +44,65 @@
     </div>
   </div>
 </div>
+
+<!-- A Queue has many q_participants -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Q_participants
+      </li>
+
+      <% @queue.q_participants.each do |q_participant| %>
+        <li class="list-group-item">
+          <a href="/q_participants/<%= q_participant.id %>">
+            <%= q_participant.user_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/q_participants/<%= q_participant.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/q_participants/<%= q_participant.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_q_participant/<%= q_participant.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Queue has many q_invitations -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Q_invitations
+      </li>
+
+      <% @queue.q_invitations.each do |q_invitation| %>
+        <li class="list-group-item">
+          <a href="/q_invitations/<%= q_invitation.id %>">
+            <%= q_invitation.sender_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/q_invitations/<%= q_invitation.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/q_invitations/<%= q_invitation.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_q_invitation/<%= q_invitation.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

@@ -38,3 +38,65 @@
     </div>
   </div>
 </div>
+
+<!-- A Q lineup has many inspirations -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Inspirations
+      </li>
+
+      <% @q_lineup.inspirations.each do |inspiration| %>
+        <li class="list-group-item">
+          <a href="/inspirations/<%= inspiration.id %>">
+            <%= inspiration.seed_track_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/inspirations/<%= inspiration.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/inspirations/<%= inspiration.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_inspiration/<%= inspiration.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Q lineup has many suggestions -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Suggestions
+      </li>
+
+      <% @q_lineup.suggestions.each do |suggestion| %>
+        <li class="list-group-item">
+          <a href="/suggestions/<%= suggestion.id %>">
+            <%= suggestion.user_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/suggestions/<%= suggestion.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/suggestions/<%= suggestion.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_suggestion/<%= suggestion.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
