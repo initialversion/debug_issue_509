@@ -1,0 +1,34 @@
+<div class="page-header">
+  <h1>
+    Q participants
+    <a href="/q_participants/new" class="btn btn-lg btn-success">New Q participant</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>User</th>
+        <th>Status</th>
+        <th>Host status</th>
+        <th>Queue</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @q_participants.each do |q_participant| %>
+      <tr>
+        <td><%= q_participant.user_id %></td>
+        <td><%= q_participant.status %></td>
+        <td><%= q_participant.host_status %></td>
+        <td><%= q_participant.queue_id %></td>
+        <td>
+          <a href="/q_participants/<%= q_participant.id %>" class="btn btn-primary">Show</a>
+          <a href="/q_participants/<%= q_participant.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_q_participant/<%= q_participant.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

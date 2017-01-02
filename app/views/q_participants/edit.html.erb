@@ -1,0 +1,63 @@
+<!-- Validation failure messages -->
+<% if @q_participant.errors.any? %>
+  <% @q_participant.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Q Participant #<%= @q_participant.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_q_participant/<%= @q_participant.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @q_participant.user_id %>">
+      </div>
+
+      <!-- Label and input for status -->
+      <div class="form-group">
+        <label for="status" class="control-label">
+          Status
+        </label>
+
+        <input type="text" id="status" name="status" placeholder="Status" class="form-control" value="<%= @q_participant.status %>">
+      </div>
+
+      <!-- Label and input for host_status -->
+      <div class="checkbox">
+        <label for="host_status">
+          <input type="checkbox" id="host_status" name="host_status" value="1" <%= "checked" if @q_participant.host_status %>>
+          Host status
+        </label>
+      </div>
+
+      <!-- Label and input for queue_id -->
+      <div class="form-group">
+        <label for="queue_id" class="control-label">
+          Queue
+        </label>
+
+        <input type="text" id="queue_id" name="queue_id" placeholder="Queue" class="form-control" value="<%= @q_participant.queue_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Q Participant
+      </button>
+      or
+      <a href="/q_participants/<%= @q_participant.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

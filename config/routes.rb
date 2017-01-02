@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Q_participant resource:
+  # CREATE
+  get "/q_participants/new", :controller => "q_participants", :action => "new"
+  post "/create_q_participant", :controller => "q_participants", :action => "create"
+
+  # READ
+  get "/q_participants", :controller => "q_participants", :action => "index"
+  get "/q_participants/:id", :controller => "q_participants", :action => "show"
+
+  # UPDATE
+  get "/q_participants/:id/edit", :controller => "q_participants", :action => "edit"
+  post "/update_q_participant/:id", :controller => "q_participants", :action => "update"
+
+  # DELETE
+  get "/delete_q_participant/:id", :controller => "q_participants", :action => "destroy"
+  #------------------------------
+
   # Routes for the Queue resource:
   # CREATE
   get "/queues/new", :controller => "queues", :action => "new"
