@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Q_invitation resource:
+  # CREATE
+  get "/q_invitations/new", :controller => "q_invitations", :action => "new"
+  post "/create_q_invitation", :controller => "q_invitations", :action => "create"
+
+  # READ
+  get "/q_invitations", :controller => "q_invitations", :action => "index"
+  get "/q_invitations/:id", :controller => "q_invitations", :action => "show"
+
+  # UPDATE
+  get "/q_invitations/:id/edit", :controller => "q_invitations", :action => "edit"
+  post "/update_q_invitation/:id", :controller => "q_invitations", :action => "update"
+
+  # DELETE
+  get "/delete_q_invitation/:id", :controller => "q_invitations", :action => "destroy"
+  #------------------------------
+
   # Routes for the Vote resource:
   # CREATE
   get "/votes/new", :controller => "votes", :action => "new"
