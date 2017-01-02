@@ -66,6 +66,64 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_q_lineup" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for suggestion_or_inspiration -->
+      <div class="form-group">
+        <label for="suggestion_or_inspiration" class="control-label">
+          Suggestion or inspiration
+        </label>
+
+        <input type="text" id="suggestion_or_inspiration" name="suggestion_or_inspiration" placeholder="Suggestion or inspiration" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for inspiration_id -->
+      <input type="hidden" name="inspiration_id" value="<%= @inspiration.id %>">
+
+      <!-- Label and input for suggestion_id -->
+      <div class="form-group">
+        <label for="suggestion_id" class="control-label">
+          Suggestion
+        </label>
+
+        <input type="text" id="suggestion_id" name="suggestion_id" placeholder="Suggestion" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for active -->
+      <div class="checkbox">
+        <label for="active">
+          <input type="checkbox" id="active" name="active" value="1" <%= "checked" if @q_lineup.active %>>
+          Active
+        </label>
+      </div>
+
+      <!-- Label and input for lineup_order -->
+      <div class="form-group">
+        <label for="lineup_order" class="control-label">
+          Lineup order
+        </label>
+
+        <input type="text" id="lineup_order" name="lineup_order" placeholder="Lineup order" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for q_id -->
+      <div class="form-group">
+        <label for="q_id" class="control-label">
+          Q
+        </label>
+
+        <%= select_tag(:q_id, options_from_collection_for_select(Queue.all, :id, :created_at), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Q Lineup
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

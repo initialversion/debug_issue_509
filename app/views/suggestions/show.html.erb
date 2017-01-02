@@ -66,6 +66,45 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_vote" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <%= select_tag(:user_id, options_from_collection_for_select(User.all, :id, :email), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for up_vote -->
+      <div class="checkbox">
+        <label for="up_vote">
+          <input type="checkbox" id="up_vote" name="up_vote" value="1" <%= "checked" if @vote.up_vote %>>
+          Up vote
+        </label>
+      </div>
+
+      <!-- Label and input for down_vote -->
+      <div class="checkbox">
+        <label for="down_vote">
+          <input type="checkbox" id="down_vote" name="down_vote" value="1" <%= "checked" if @vote.down_vote %>>
+          Down vote
+        </label>
+      </div>
+
+      <!-- Label and input for suggestion_id -->
+      <input type="hidden" name="suggestion_id" value="<%= @suggestion.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Vote
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

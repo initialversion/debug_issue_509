@@ -6,6 +6,8 @@ class QueuesController < ApplicationController
   end
 
   def show
+    @q_invitation = QInvitation.new
+    @q_participant = QParticipant.new
     @queue = Queue.find(params[:id])
 
     render("queues/show.html.erb")

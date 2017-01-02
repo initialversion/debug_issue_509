@@ -6,6 +6,7 @@ class QParticipantsController < ApplicationController
   end
 
   def show
+    @q_invitation = QInvitation.new
     @q_participant = QParticipant.find(params[:id])
 
     render("q_participants/show.html.erb")

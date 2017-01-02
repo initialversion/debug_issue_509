@@ -66,6 +66,71 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_inspiration" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for seed_track_id -->
+      <div class="form-group">
+        <label for="seed_track_id" class="control-label">
+          Seed track
+        </label>
+
+        <input type="text" id="seed_track_id" name="seed_track_id" placeholder="Seed track" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for inspiration_song_id -->
+      <div class="form-group">
+        <label for="inspiration_song_id" class="control-label">
+          Inspiration song
+        </label>
+
+        <input type="text" id="inspiration_song_id" name="inspiration_song_id" placeholder="Inspiration song" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for up_vote_count -->
+      <div class="form-group">
+        <label for="up_vote_count" class="control-label">
+          Up vote count
+        </label>
+
+        <input type="text" id="up_vote_count" name="up_vote_count" placeholder="Up vote count" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for down_vote_count -->
+      <div class="form-group">
+        <label for="down_vote_count" class="control-label">
+          Down vote count
+        </label>
+
+        <input type="text" id="down_vote_count" name="down_vote_count" placeholder="Down vote count" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for qlineup_id -->
+      <div class="form-group">
+        <label for="qlineup_id" class="control-label">
+          Qlineup
+        </label>
+
+        <%= select_tag(:qlineup_id, options_from_collection_for_select(QLineup.all, :id, :suggestion_or_inspiration), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for status -->
+      <div class="form-group">
+        <label for="status" class="control-label">
+          Status
+        </label>
+
+        <input type="text" id="status" name="status" placeholder="Status" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Inspiration
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -97,6 +162,71 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_suggestion" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <%= select_tag(:user_id, options_from_collection_for_select(User.all, :id, :email), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for song_id -->
+      <div class="form-group">
+        <label for="song_id" class="control-label">
+          Song
+        </label>
+
+        <input type="text" id="song_id" name="song_id" placeholder="Song" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for up_vote_count -->
+      <div class="form-group">
+        <label for="up_vote_count" class="control-label">
+          Up vote count
+        </label>
+
+        <input type="text" id="up_vote_count" name="up_vote_count" placeholder="Up vote count" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for down_vote_count -->
+      <div class="form-group">
+        <label for="down_vote_count" class="control-label">
+          Down vote count
+        </label>
+
+        <input type="text" id="down_vote_count" name="down_vote_count" placeholder="Down vote count" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for status -->
+      <div class="form-group">
+        <label for="status" class="control-label">
+          Status
+        </label>
+
+        <input type="text" id="status" name="status" placeholder="Status" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for qlineup_id -->
+      <div class="form-group">
+        <label for="qlineup_id" class="control-label">
+          Qlineup
+        </label>
+
+        <%= select_tag(:qlineup_id, options_from_collection_for_select(QLineup.all, :id, :suggestion_or_inspiration), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Suggestion
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

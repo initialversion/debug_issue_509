@@ -6,6 +6,7 @@ class InspirationsController < ApplicationController
   end
 
   def show
+    @q_lineup = QLineup.new
     @inspiration = Inspiration.find(params[:id])
 
     render("inspirations/show.html.erb")

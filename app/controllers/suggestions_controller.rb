@@ -6,6 +6,7 @@ class SuggestionsController < ApplicationController
   end
 
   def show
+    @vote = Vote.new
     @suggestion = Suggestion.find(params[:id])
 
     render("suggestions/show.html.erb")
