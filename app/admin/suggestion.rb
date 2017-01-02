@@ -1,5 +1,7 @@
 ActiveAdmin.register Suggestion do
 
+ permit_params :user_id, :song_id, :up_vote_count, :down_vote_count, :status, :qlineup_id
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
