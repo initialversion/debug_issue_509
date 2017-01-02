@@ -21,7 +21,7 @@
         <td><%= q_invitation.sender.user_id %></td>
         <td><%= q_invitation.recipient.email %></td>
         <td><%= q_invitation.status %></td>
-        <td><%= q_invitation.queue_id %></td>
+        <td><%= q_invitation.queue.created_at %></td>
         <td>
           <a href="/q_invitations/<%= q_invitation.id %>" class="btn btn-primary">Show</a>
           <a href="/q_invitations/<%= q_invitation.id %>/edit" class="btn btn-warning">Edit</a>
