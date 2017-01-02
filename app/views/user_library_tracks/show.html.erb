@@ -1,0 +1,49 @@
+<div class="page-header">
+  <h3>User Library Track #<%= @user_library_track.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Song</dt>
+      <dd><%= @user_library_track.song_id %></dd>
+
+      <dt>Song name</dt>
+      <dd><%= @user_library_track.song_name %></dd>
+
+      <dt>Song artist</dt>
+      <dd><%= @user_library_track.song_artist %></dd>
+
+      <dt>Song attributes</dt>
+      <dd><%= @user_library_track.song_attributes %></dd>
+
+      <dt>Number of listens</dt>
+      <dd><%= @user_library_track.number_of_listens %></dd>
+
+      <dt>Genre</dt>
+      <dd><%= @user_library_track.genre %></dd>
+
+      <dt>Last listened to date</dt>
+      <dd><%= @user_library_track.last_listened_to_date %></dd>
+
+      <dt>Song release date</dt>
+      <dd><%= @user_library_track.song_release_date %></dd>
+
+      <dt>Liked</dt>
+      <dd><%= @user_library_track.liked %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/user_library_tracks" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/user_library_tracks/<%= @user_library_track.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_user_library_track/<%= @user_library_track.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

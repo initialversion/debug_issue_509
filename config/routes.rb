@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the User_library_track resource:
+  # CREATE
+  get "/user_library_tracks/new", :controller => "user_library_tracks", :action => "new"
+  post "/create_user_library_track", :controller => "user_library_tracks", :action => "create"
+
+  # READ
+  get "/user_library_tracks", :controller => "user_library_tracks", :action => "index"
+  get "/user_library_tracks/:id", :controller => "user_library_tracks", :action => "show"
+
+  # UPDATE
+  get "/user_library_tracks/:id/edit", :controller => "user_library_tracks", :action => "edit"
+  post "/update_user_library_track/:id", :controller => "user_library_tracks", :action => "update"
+
+  # DELETE
+  get "/delete_user_library_track/:id", :controller => "user_library_tracks", :action => "destroy"
+  #------------------------------
+
   # Routes for the Friend resource:
   # CREATE
   get "/friends/new", :controller => "friends", :action => "new"

@@ -1,0 +1,108 @@
+<!-- Validation failure messages -->
+<% if @user_library_track.errors.any? %>
+  <% @user_library_track.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add User Library Track</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_user_library_track" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for song_id -->
+      <div class="form-group">
+        <label for="song_id" class="control-label">
+          Song
+        </label>
+
+        <input type="text" id="song_id" name="song_id" placeholder="Song" class="form-control" value="<%= @user_library_track.song_id %>">
+      </div>
+
+      <!-- Label and input for song_name -->
+      <div class="form-group">
+        <label for="song_name" class="control-label">
+          Song name
+        </label>
+
+        <input type="text" id="song_name" name="song_name" placeholder="Song name" class="form-control" value="<%= @user_library_track.song_name %>">
+      </div>
+
+      <!-- Label and input for song_artist -->
+      <div class="form-group">
+        <label for="song_artist" class="control-label">
+          Song artist
+        </label>
+
+        <input type="text" id="song_artist" name="song_artist" placeholder="Song artist" class="form-control" value="<%= @user_library_track.song_artist %>">
+      </div>
+
+      <!-- Label and input for song_attributes -->
+      <div class="form-group">
+        <label for="song_attributes" class="control-label">
+          Song attributes
+        </label>
+
+        <input type="text" id="song_attributes" name="song_attributes" placeholder="Song attributes" class="form-control" value="<%= @user_library_track.song_attributes %>">
+      </div>
+
+      <!-- Label and input for number_of_listens -->
+      <div class="form-group">
+        <label for="number_of_listens" class="control-label">
+          Number of listens
+        </label>
+
+        <input type="text" id="number_of_listens" name="number_of_listens" placeholder="Number of listens" class="form-control" value="<%= @user_library_track.number_of_listens %>">
+      </div>
+
+      <!-- Label and input for genre -->
+      <div class="form-group">
+        <label for="genre" class="control-label">
+          Genre
+        </label>
+
+        <input type="text" id="genre" name="genre" placeholder="Genre" class="form-control" value="<%= @user_library_track.genre %>">
+      </div>
+
+      <!-- Label and input for last_listened_to_date -->
+      <div class="form-group">
+        <label for="last_listened_to_date" class="control-label">
+          Last listened to date
+        </label>
+
+        <input type="text" id="last_listened_to_date" name="last_listened_to_date" placeholder="Last listened to date" class="form-control" value="<%= @user_library_track.last_listened_to_date %>">
+      </div>
+
+      <!-- Label and input for song_release_date -->
+      <div class="form-group">
+        <label for="song_release_date" class="control-label">
+          Song release date
+        </label>
+
+        <input type="text" id="song_release_date" name="song_release_date" placeholder="Song release date" class="form-control" value="<%= @user_library_track.song_release_date %>">
+      </div>
+
+      <!-- Label and input for liked -->
+      <div class="checkbox">
+        <label for="liked">
+          <input type="checkbox" id="liked" name="liked" value="1" <%= "checked" if @user_library_track.liked %>>
+          Liked
+        </label>
+      </div>
+
+      <button class="btn btn-success">
+        Create User Library Track
+      </button>
+      or
+      <a href="/user_library_tracks">Cancel</a>
+    </form>
+  </div>
+</div>
