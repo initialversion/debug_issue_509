@@ -1,6 +1,7 @@
 class QInvitationsController < ApplicationController
   def index
-    @q_invitations = QInvitation.page(params[:page]).per(10)
+    @q = QInvitation.ransack(params[:q])
+    @q_invitations = @q.result(:distinct => true).includes(:recipient, :queue, :sender).page(params[:page]).per(10)
 
     render("q_invitations/index.html.erb")
   end

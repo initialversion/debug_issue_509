@@ -1,6 +1,7 @@
 class QLineupsController < ApplicationController
   def index
-    @q_lineups = QLineup.page(params[:page]).per(10)
+    @q = QLineup.ransack(params[:q])
+    @q_lineups = @q.result(:distinct => true).includes(:q, :inspiration, :inspirations, :suggestions).page(params[:page]).per(10)
 
     render("q_lineups/index.html.erb")
   end

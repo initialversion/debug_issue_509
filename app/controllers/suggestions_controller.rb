@@ -1,6 +1,7 @@
 class SuggestionsController < ApplicationController
   def index
-    @suggestions = Suggestion.page(params[:page]).per(10)
+    @q = Suggestion.ransack(params[:q])
+    @suggestions = @q.result(:distinct => true).includes(:user, :votes, :qlineup).page(params[:page]).per(10)
 
     render("suggestions/index.html.erb")
   end

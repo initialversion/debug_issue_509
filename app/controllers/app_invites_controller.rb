@@ -1,6 +1,7 @@
 class AppInvitesController < ApplicationController
   def index
-    @app_invites = AppInvite.page(params[:page]).per(10)
+    @q = AppInvite.ransack(params[:q])
+    @app_invites = @q.result(:distinct => true).includes(:sender).page(params[:page]).per(10)
 
     render("app_invites/index.html.erb")
   end

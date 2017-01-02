@@ -3,6 +3,124 @@
     Queues
     <a href="/queues/new" class="btn btn-lg btn-success">New Queue</a>
   </h1>
+</div><div class="row mb-1">
+  <div class="col-md-12">
+    <%= search_form_for @q, :class => collapse_search_form, :id => "queues_filters" do |f| %>
+      <p class="lead">Narrow results:</p>
+
+        <div class="form-group">
+    <%= f.label :group_or_event_cont, "Group or event contains" %>
+    <%= f.text_field :group_or_event_cont, :class => "form-control", :placeholder => "Group or event contains" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :allow_participants_to_invite_eq, "Allow participants to invite" %>
+    <div>
+      <label class="radio-inline">
+        <%= f.radio_button :allow_participants_to_invite_eq, "1", checked: ((params[:q] && params[:q][:allow_participants_to_invite_eq]) == "1" ? "checked" : "") %> Yes
+      </label>
+      <label class="radio-inline">
+        <%= f.radio_button :allow_participants_to_invite_eq, "0", checked: ((params[:q] && params[:q][:allow_participants_to_invite_eq]) == "0" ? "checked" : "")%> No
+      </label>
+      <label class="radio-inline">
+        <%= f.radio_button :allow_participants_to_invite_eq, ""%> Either
+      </label>
+    </div>
+  </div>
+
+<div class="form-group">
+    <%= f.label :public_queue_eq, "Public queue" %>
+    <div>
+      <label class="radio-inline">
+        <%= f.radio_button :public_queue_eq, "1", checked: ((params[:q] && params[:q][:public_queue_eq]) == "1" ? "checked" : "") %> Yes
+      </label>
+      <label class="radio-inline">
+        <%= f.radio_button :public_queue_eq, "0", checked: ((params[:q] && params[:q][:public_queue_eq]) == "0" ? "checked" : "")%> No
+      </label>
+      <label class="radio-inline">
+        <%= f.radio_button :public_queue_eq, ""%> Either
+      </label>
+    </div>
+  </div>
+
+<div class="form-group">
+    <%= f.label :name_cont, "Name contains" %>
+    <%= f.text_field :name_cont, :class => "form-control", :placeholder => "Name contains" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :activity_type_cont, "Activity type contains" %>
+    <%= f.text_field :activity_type_cont, :class => "form-control", :placeholder => "Activity type contains" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :status_cont, "Status contains" %>
+    <%= f.text_field :status_cont, :class => "form-control", :placeholder => "Status contains" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :event_type_cont, "Event type contains" %>
+    <%= f.text_field :event_type_cont, :class => "form-control", :placeholder => "Event type contains" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :genres_cont, "Genres contains" %>
+    <%= f.text_field :genres_cont, :class => "form-control", :placeholder => "Genres contains" %>
+  </div>
+
+<div class="form-group">
+          <%= f.label :created_at, "Created at" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='created_atgteqPicker'>
+                  <%= f.text_field :created_at_gteq, :class => "form-control", :placeholder => "Created at greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='created_atlteqPicker'>
+                  <%= f.text_field :created_at_lteq, :class => "form-control", :placeholder => "Created at less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#created_atgteqPicker').datetimepicker({
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#created_atlteqPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#created_atgteqPicker').on("dp.change", function (e) {
+                  $('#created_atlteqPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#created_atlteqPicker').on("dp.change", function (e) {
+                  $('#created_atgteqPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+        <div class="form-group">
+      <%= f.label :q_lineup_suggestion_or_inspiration_cont, "QLineup suggestion_or_inspiration contains" %>
+      <%= f.text_field :q_lineup_suggestion_or_inspiration_cont, :class => "form-control", :placeholder => "QLineup suggestion_or_inspiration contains" %>
+    </div>
+
+      <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
+
+      <a href="/queues" class="btn btn-default btn-block mb-1">Clear filters</a>
+    <% end %>
+    <a class="btn btn-default btn-block mb-1" data-toggle="collapse" href="#queues_filters">
+      Show Filters
+    </a>
+  </div>
 </div>
 
 <div class="row">

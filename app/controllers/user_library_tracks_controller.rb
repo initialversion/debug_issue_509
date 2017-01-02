@@ -1,6 +1,7 @@
 class UserLibraryTracksController < ApplicationController
   def index
-    @user_library_tracks = UserLibraryTrack.page(params[:page]).per(10)
+    @q = UserLibraryTrack.ransack(params[:q])
+    @user_library_tracks = @q.result(:distinct => true).includes().page(params[:page]).per(10)
 
     render("user_library_tracks/index.html.erb")
   end

@@ -1,6 +1,7 @@
 class QueuesController < ApplicationController
   def index
-    @queues = Queue.page(params[:page]).per(10)
+    @q = Queue.ransack(params[:q])
+    @queues = @q.result(:distinct => true).includes(:q_participants, :q_invitations, :q_lineup).page(params[:page]).per(10)
 
     render("queues/index.html.erb")
   end

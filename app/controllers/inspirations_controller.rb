@@ -1,6 +1,7 @@
 class InspirationsController < ApplicationController
   def index
-    @inspirations = Inspiration.page(params[:page]).per(10)
+    @q = Inspiration.ransack(params[:q])
+    @inspirations = @q.result(:distinct => true).includes(:q_lineups, :q_lineup).page(params[:page]).per(10)
 
     render("inspirations/index.html.erb")
   end

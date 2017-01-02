@@ -1,6 +1,7 @@
 class QParticipantsController < ApplicationController
   def index
-    @q_participants = QParticipant.page(params[:page]).per(10)
+    @q = QParticipant.ransack(params[:q])
+    @q_participants = @q.result(:distinct => true).includes(:user, :q, :q_invitations).page(params[:page]).per(10)
 
     render("q_participants/index.html.erb")
   end
